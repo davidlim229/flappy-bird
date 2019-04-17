@@ -2,28 +2,40 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	sound_player_.load("Mood.mp3");
-	sound_player_.play();
+	fly_sound_.load("fly.mp3");
+	bird = Bird();
+}
+
+// Draws Bird
+void ofApp::DrawBird() {
+	ofVec2f bird_pos = bird.GetPosition();
+	//back_pic_loader.draw(0, 0, 1024, 768);
+	bird.GetSprite().draw(bird_pos.x, bird_pos.y, 70, 70);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	bird.Move();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+	DrawBird();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+	if (key == 'u') {
+		bird.SetDirection(UP);
+		fly_sound_.play();
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+	if (key == 'u') {
+		bird.SetDirection(DOWN);
+	}
 }
 
 //--------------------------------------------------------------

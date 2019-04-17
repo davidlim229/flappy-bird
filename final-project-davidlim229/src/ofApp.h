@@ -1,15 +1,18 @@
 #pragma once
 
 #include "ofMain.h"
+#include "bird.h"
 
 class ofApp : public ofBaseApp{
-
-	ofSoundPlayer sound_player_;
+	
+	Bird bird;
+	ofSoundPlayer fly_sound_;
 
 	public:
 		void setup();
 		void update();
 		void draw();
+		void DrawBird();
 
 		void keyPressed(int key);
 		void keyReleased(int key);
