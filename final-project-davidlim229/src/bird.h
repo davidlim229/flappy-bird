@@ -2,7 +2,7 @@
 
 #include "ofMain.h";
 enum BirdDirection {
-	UP = 0,
+	UP,
 	DOWN
 };
 

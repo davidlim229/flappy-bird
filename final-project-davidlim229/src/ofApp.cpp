@@ -9,7 +9,6 @@ void ofApp::setup(){
 // Draws Bird
 void ofApp::DrawBird() {
 	ofVec2f bird_pos = bird.GetPosition();
-	//back_pic_loader.draw(0, 0, 1024, 768);
 	bird.GetSprite().draw(bird_pos.x, bird_pos.y, 70, 70);
 }
 

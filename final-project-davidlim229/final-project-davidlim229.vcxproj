@@ -183,9 +183,11 @@
     <ClCompile Include="src\bird.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\bird.h" />
+    <ClInclude Include="src\catch.hpp" />
     <ClInclude Include="src\ofApp.h" />
   </ItemGroup>
   <ItemGroup>

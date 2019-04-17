@@ -10,6 +10,9 @@
     <ClCompile Include="src\bird.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Tests.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -21,6 +24,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\bird.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\catch.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
