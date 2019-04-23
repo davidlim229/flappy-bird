@@ -183,12 +183,13 @@
     <ClCompile Include="src\bird.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
-    <ClCompile Include="src\Tests.cpp" />
+    <ClCompile Include="src\pipe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\bird.h" />
     <ClInclude Include="src\catch.hpp" />
     <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\pipe.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

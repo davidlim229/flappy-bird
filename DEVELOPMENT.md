@@ -5,3 +5,7 @@ I changed my idea to instead making a flappy bird type game.
 
 Week 1:
 Created Bird class and flying/descending mechanic
+
+Week 2:
+Added randomized pipes, having struggles with making game smoother/not lag
+Making it a vector of pipes made the game lag much more

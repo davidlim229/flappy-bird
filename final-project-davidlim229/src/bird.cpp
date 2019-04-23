@@ -1,7 +1,7 @@
 #include "bird.h"
 
 Bird::Bird() {
-	position.set(ofGetWindowWidth() / 4, ofGetWindowHeight() / 3);
+	position.set(ofGetWindowWidth() / 4, ofGetWindowHeight() / 2);
 	direction = DOWN;
 	sprite.load("bird.png");
 }
@@ -20,10 +20,10 @@ ofImage Bird::GetSprite() const {
 
 void Bird::Move() {
 	if (direction == UP) {
-		position.set(position.x, position.y - 30);
+		position.set(position.x, position.y - 120);
 	}
 	else {
-		position.set(position.x, position.y + 20);
+		position.set(position.x, position.y + 70);
 	}
 }
 

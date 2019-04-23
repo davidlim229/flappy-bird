@@ -2,24 +2,54 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	background.load("background.png");
 	fly_sound_.load("fly.mp3");
 	bird = Bird();
+	pipe = Pipe();
+	ofSetFrameRate(100);
+	ofSetVerticalSync(true);
+	game_state_ = IN_PROGRESS;
+}
+
+
+//--------------------------------------------------------------
+void ofApp::update(){
+	if (game_state_ == IN_PROGRESS) {
+		bird.Move();
+		pipe.Update();
+
+		if (pipe.GetPosition().x < -130) {
+			pipe = Pipe();
+		}
+		if (bird.GetPosition().x == pipe.GetPosition().x && bird.GetPosition().y == pipe.GetPosition().y) {
+			game_state_ == GAME_OVER;
+		}
+	}
+}
+
+
+//--------------------------------------------------------------
+void ofApp::draw() {
+	background.draw(0, 0, ofGetWidth() + 20, ofGetHeight() + 20);
+	if (game_state_ == IN_PROGRESS) {
+		DrawBird();
+		DrawPipe();
+	}
 }
 
 // Draws Bird
 void ofApp::DrawBird() {
 	ofVec2f bird_pos = bird.GetPosition();
-	bird.GetSprite().draw(bird_pos.x, bird_pos.y, 70, 70);
+	bird.GetSprite().draw(bird_pos.x, bird_pos.y, 200, 200);
 }
 
-//--------------------------------------------------------------
-void ofApp::update(){
-	bird.Move();
-}
-
-//--------------------------------------------------------------
-void ofApp::draw(){
-	DrawBird();
+// Draws Pipe
+void ofApp::DrawPipe() {
+	ofImage bottom = pipe.GetSprite();
+	ofImage top = pipe.GetSprite();
+	top.rotate90(2);
+	bottom.draw(pipe.GetPosition().x, pipe.GetPosition().y, pipe.GetSize().x, pipe.GetSize().y);
+	top.draw(pipe.GetPosition().x, 0, pipe.GetSize().x, ofGetHeight() - pipe.GetSize().y - ofGetWindowHeight() * 0.35);
 }
 
 //--------------------------------------------------------------
