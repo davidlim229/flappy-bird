@@ -21,8 +21,8 @@ void ofApp::update(){
 		if (pipe.GetPosition().x < -130) {
 			pipe = Pipe();
 		}
-		if (bird.GetPosition().x == pipe.GetPosition().x && bird.GetPosition().y == pipe.GetPosition().y) {
-			game_state_ == GAME_OVER;
+		if (bird.BirdIsDead(pipe)) {
+			game_state_ = GAME_OVER;
 		}
 	}
 }

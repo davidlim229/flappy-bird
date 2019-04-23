@@ -1,6 +1,8 @@
 #pragma once
 
-#include "ofMain.h";
+#include "ofMain.h"
+#include "pipe.h"
+
 enum BirdDirection {
 	UP,
 	DOWN
@@ -36,4 +38,7 @@ public:
 
 	// Sets the new direction of the bird
 	void SetDirection(BirdDirection new_direction);
+
+	// Returns true if the bird died (hit an obstacle or went out of the screen)
+	bool BirdIsDead(Pipe pipe);
 };

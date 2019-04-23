@@ -9,3 +9,4 @@ Created Bird class and flying/descending mechanic
 Week 2:
 Added randomized pipes, having struggles with making game smoother/not lag
 Making it a vector of pipes made the game lag much more
+Also made pipes deadly to bird, game is over when they're hit

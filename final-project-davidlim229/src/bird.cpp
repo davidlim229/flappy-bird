@@ -36,3 +36,17 @@ void Bird::SetDirection(BirdDirection new_direction) {
 	}
 	direction = new_direction;
 }
+
+bool Bird::BirdIsDead(Pipe pipe) {
+	if (position.y < 0 || position.y > ofGetWindowHeight() - 50) {
+		return true;
+	}
+	ofRectangle bird_rectangle(position.x + 5, position.y + 5, 200, 200);
+	ofRectangle bottom(pipe.GetPosition().x, pipe.GetPosition().y, pipe.GetSize().x, pipe.GetSize().y);
+	ofRectangle top(pipe.GetPosition().x, 0, pipe.GetSize().x, ofGetHeight() - pipe.GetSize().y - ofGetWindowHeight() * 0.35);
+
+	if (bottom.intersects(bird_rectangle) || top.intersects(bird_rectangle)) {
+		return true;
+	}
+	return false;
+}
