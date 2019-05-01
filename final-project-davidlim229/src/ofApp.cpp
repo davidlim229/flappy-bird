@@ -2,27 +2,41 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	background.load("background.png");
+	score = 0;
+	game_state_ = START;
+	background_music_.load("background_music.mp3");
+	background_music_.play();
+	background.load("start.jpg");
+	ofSetWindowTitle("Flappy Bird");
 	fly_sound_.load("fly.mp3");
+	coin_sound_.load("coin.mp3");
 	bird = Bird();
 	pipe = Pipe();
-	ofSetFrameRate(100);
+	ofSetFrameRate(70);
 	ofSetVerticalSync(true);
-	game_state_ = IN_PROGRESS;
+	font.load("OpenSans-Regular.ttf", 80);
 }
-
-
+ 
 //--------------------------------------------------------------
 void ofApp::update(){
 	if (game_state_ == IN_PROGRESS) {
+		background.load("background.png");
 		bird.Move();
 		pipe.Update();
 
 		if (pipe.GetPosition().x < -130) {
 			pipe = Pipe();
 		}
+
 		if (bird.BirdIsDead(pipe)) {
 			game_state_ = GAME_OVER;
+			background.load("end.jpg");
+			score = 0;
+		}
+		
+		if (bird.Score(pipe)) {
+			score++;
+			coin_sound_.play();
 		}
 	}
 }
@@ -32,8 +46,10 @@ void ofApp::update(){
 void ofApp::draw() {
 	background.draw(0, 0, ofGetWidth() + 20, ofGetHeight() + 20);
 	if (game_state_ == IN_PROGRESS) {
+		ofSetColor(255, 255, 255);
 		DrawBird();
 		DrawPipe();
+		font.drawString(to_string(score), 1500, 300);
 	}
 }
 
@@ -49,12 +65,18 @@ void ofApp::DrawPipe() {
 	ofImage top = pipe.GetSprite();
 	top.rotate90(2);
 	bottom.draw(pipe.GetPosition().x, pipe.GetPosition().y, pipe.GetSize().x, pipe.GetSize().y);
-	top.draw(pipe.GetPosition().x, 0, pipe.GetSize().x, ofGetHeight() - pipe.GetSize().y - ofGetWindowHeight() * 0.35);
+	top.draw(pipe.GetPosition().x, 0, pipe.GetSize().x, ofGetHeight() - pipe.GetSize().y - ofGetWindowHeight() * 0.25);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	if (key == 'u') {
+	if (key == ' ') {
+		if (game_state_ == GAME_OVER || game_state_ == START) {
+			background.load("background.png");
+			pipe = Pipe();
+			bird.Reset();
+			game_state_ = IN_PROGRESS;
+		}
 		bird.SetDirection(UP);
 		fly_sound_.play();
 	}
@@ -62,7 +84,7 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-	if (key == 'u') {
+	if (key == ' ') {
 		bird.SetDirection(DOWN);
 	}
 }

@@ -7,17 +7,20 @@
 class ofApp : public ofBaseApp{
 	
 	enum GameState {
+		START,
 		IN_PROGRESS,
-		PAUSED,
 		GAME_OVER
 	};
 	
-	GameState game_state_ = IN_PROGRESS;
+	GameState game_state_;
 	Bird bird;
 	Pipe pipe;
 	ofImage background;
+	ofSoundPlayer background_music_;
 	ofSoundPlayer fly_sound_;
-	int frames_passed_;
+	ofSoundPlayer coin_sound_;
+	ofTrueTypeFont font;
+	int score;
 
 	void DrawBird();
 	void DrawPipe();

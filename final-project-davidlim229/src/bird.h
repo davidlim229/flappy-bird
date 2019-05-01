@@ -36,9 +36,15 @@ public:
 	// Updates the bird to move depending on what direction it is going
 	void Move();
 
+	// Resets bird position to starting
+	void Reset();
+
 	// Sets the new direction of the bird
 	void SetDirection(BirdDirection new_direction);
 
 	// Returns true if the bird died (hit an obstacle or went out of the screen)
 	bool BirdIsDead(Pipe pipe);
+
+	// Returns true if the bird went over the pipe and scored a point
+	bool Score(Pipe pipe);
 };

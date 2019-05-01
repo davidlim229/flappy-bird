@@ -22,5 +22,5 @@ ofVec2f Pipe::GetPosition() const {
 }
 
 void Pipe::Update() {
-	position.set(position.x - 40, position.y);
+	position.set(position.x - 60, position.y);
  }

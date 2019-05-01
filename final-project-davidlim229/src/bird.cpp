@@ -6,6 +6,12 @@ Bird::Bird() {
 	sprite.load("bird.png");
 }
 
+void Bird::Reset() {
+	position.set(ofGetWindowWidth() / 4, ofGetWindowHeight() / 2);
+	direction = DOWN;
+	sprite.load("bird.png");
+}
+
 ofVec2f Bird::GetPosition() const {
 	return position;
 }
@@ -20,10 +26,10 @@ ofImage Bird::GetSprite() const {
 
 void Bird::Move() {
 	if (direction == UP) {
-		position.set(position.x, position.y - 120);
+		position.set(position.x, position.y - 130);
 	}
 	else {
-		position.set(position.x, position.y + 70);
+		position.set(position.x, position.y + 90);
 	}
 }
 
@@ -49,4 +55,8 @@ bool Bird::BirdIsDead(Pipe pipe) {
 		return true;
 	}
 	return false;
+}
+
+bool Bird::Score(Pipe pipe) {
+	return position.x == pipe.GetPosition().x;
 }

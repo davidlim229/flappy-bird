@@ -10,3 +10,9 @@ Week 2:
 Added randomized pipes, having struggles with making game smoother/not lag
 Making it a vector of pipes made the game lag much more
 Also made pipes deadly to bird, game is over when they're hit
+
+Week 3:
+Added more background sound effects
+Added game start screen and game over screen
+Changed bird and pipe speed to make game quicker
+Added scoreboard
