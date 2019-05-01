@@ -12,6 +12,10 @@ void Bird::Reset() {
 	sprite.load("bird.png");
 }
 
+void Bird::SetPosition(ofVec2f coordinates) {
+	position.set(coordinates.x, coordinates.y);
+}
+
 ofVec2f Bird::GetPosition() const {
 	return position;
 }

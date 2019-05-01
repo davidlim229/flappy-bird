@@ -27,6 +27,9 @@ public:
 	// Getter for bird sprite
 	ofImage GetSprite() const;
 
+	// Setter for position, used for testing purposes
+	void SetPosition(ofVec2f coordinates);
+
 	// Getter for position
 	ofVec2f GetPosition() const;
 

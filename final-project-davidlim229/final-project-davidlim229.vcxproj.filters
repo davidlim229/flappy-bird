@@ -10,10 +10,10 @@
     <ClCompile Include="src\bird.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tests.cpp">
+    <ClCompile Include="src\pipe.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\pipe.cpp">
+    <ClCompile Include="src\tests.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
