@@ -16,7 +16,7 @@ class ofApp : public ofBaseApp{
 	Bird bird;
 	Pipe pipe;
 	ofImage background;
-	ofSoundPlayer background_music_;
+	///ofSoundPlayer background_music_;
 	ofSoundPlayer fly_sound_;
 	ofSoundPlayer coin_sound_;
 	ofTrueTypeFont font;

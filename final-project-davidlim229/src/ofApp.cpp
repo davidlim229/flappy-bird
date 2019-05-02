@@ -4,8 +4,8 @@
 void ofApp::setup(){
 	score = 0;
 	game_state_ = START;
-	background_music_.load("background_music.mp3");
-	background_music_.play();
+	//background_music_.load("background_music.mp3");
+	//background_music_.play();
 	background.load("start.jpg");
 	ofSetWindowTitle("Flappy Bird");
 	fly_sound_.load("fly.mp3");
