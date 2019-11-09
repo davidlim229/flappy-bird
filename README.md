@@ -4,7 +4,9 @@ I used the ofxGui library, ofSoundPlayer, ofGraphics and various other libraries
 
 # Directions
 Press Space Bar to start the game
+
 Space bar to jump
+
 Space bar to restart game once bird is dead
 
 # How to Run
