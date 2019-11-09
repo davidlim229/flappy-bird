@@ -11,5 +11,6 @@ Space bar to restart game once bird is dead
 
 # How to Run
 OpenFrameworks is necessary to run the program. It can be downloaded here: https://openframeworks.cc/
+
 Open the OpenFrameworks project generator and download this project.
 Import this project into the project generator.
